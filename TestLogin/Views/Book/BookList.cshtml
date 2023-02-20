@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TestLogin.Models.Book>
+
+@{
+    ViewData["Title"] = "BookList";
+}
+
+<head>
+	<style>
+		.styleCss{
+		text-align:center;
+		}
+
+		.borderCss{
+		border:1px solid lightgrey;
+		}
+	</style>
+</head>
+<body>
+
+
+	<h1>BookList</h1>
+	<p><a asp-action="PurchaseBook" asp-route-id="BookId">Add Book List</a></p>
+
+	<table class="table">
+		<thead class="styleCss">
+			<tr>
+				<th class="borderCss">
+					@Html.DisplayNameFor(model => model.BookId)
+				</th>
+				<th class="borderCss">
+					@Html.DisplayNameFor(model => model.BookName)
+				</th>
+				<th class="borderCss">
+					@Html.DisplayNameFor(model => model.Isbn)
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr class="styleCss">
+					<td class="borderCss">
+						@Html.DisplayFor(modelItem => item.BookId)
+					</td>
+					<td class="borderCss">
+						@Html.DisplayFor(modelItem => item.BookName)
+					</td>
+					<td class="borderCss">
+						@Html.DisplayFor(modelItem => item.Isbn)
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</body>

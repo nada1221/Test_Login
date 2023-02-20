@@ -1,0 +1,15 @@
+﻿@using Newtonsoft.Json;
+@model IEnumerable<TestLogin.Models.User>
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div>
+	@Html.ActionLink("유저목록", "Index", "Users")
+	@Html.ActionLink("책 목록","BookList","Book")
+	@Html.ActionLink("책구매목록","Index","BuyedBooks")
+</div>
+
+
+
+

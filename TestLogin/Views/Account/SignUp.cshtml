@@ -1,0 +1,55 @@
+﻿@model TestLogin.Models.User
+@{
+    ViewData["Title"] = "SignUp";
+}
+
+
+<head>
+	<style>
+		.signUp {
+			text-align:center;
+			width: 340px;
+			margin: 50px auto;
+			font-size: 15px;
+			margin-bottom: 15px;
+			background: #f7f7f7;
+			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+			padding: 30px;
+		}
+
+		.styledCss{
+		margin-bottom:15px;
+		}
+
+		.noneBD{
+		width:100%;
+		height:35px;
+		border: 1px solid lightgrey;
+		}
+	</style>
+</head>
+<body>
+	<div class="signUp shadow-lg">
+		@using (Html.BeginForm(FormMethod.Post))
+		{
+			<div class="styledCss ">
+				<h1 style="text-align:start">회원 가입</h1>
+			</div>
+			<img class="styledCss" src="https://4kwallpapers.com/images/wallpapers/spider-man-marvel-superheroes-marvel-comics-2732x2732-7482.jpg" style="width:70%" />
+			<div class="styledCss">
+				<h4 style="text-align:start">아이디</h4>
+				<div style="width:100%">
+					@Html.TextBoxFor(m => m.Id, new { placeHolder="Input your ID" , @class="noneBD"})
+				</div>
+			</div>
+			<div class="styledCss">
+				<h4 style="text-align:start">비밀번호</h4>
+				@Html.TextBoxFor(m => m.Pw, new { placeHolder="Input your Password" , @class="noneBD"})
+			</div>
+			<div class="styledCss">
+				<button type="submit" class="btn btn-primary btn-block" style="width:100%">회원 가입</button>
+			</div>
+		}
+		@ViewData["ErrorMessage"]
+	</div>
+</body>

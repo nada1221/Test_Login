@@ -1,0 +1,45 @@
+﻿@model TestLogin.Models.BuyedBook
+
+@{
+	ViewData["Title"] = "Create";
+	var userList = ViewData["UserList"] as SelectList;
+	var bookList = ViewData["BookList"] as SelectList;
+}
+
+<h1>Create</h1>
+
+<h4>BuyedBook</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="UserId" class="control-label"></label>
+				@Html.DropDownList("Id", userList)
+				@*<select asp-for="UserId" class ="form-control" asp-items="userList"></select>*@
+			</div>
+			<div class="form-group">
+				<label asp-for="BookId" class="control-label"></label>
+				@Html.DropDownList("BookId", bookList)
+				@*<select asp-for="BookId" class ="form-control" asp-items="bookList"></select>*@
+			</div>
+			@*<div>
+				<label asp-for="Book.BookName" class="control-label"></label>				
+				@Html.TextBoxFor(m=>m.Book.BookName, new {@readonly="readonly", style="width:100%"})
+			</div>
+			<div>
+				<label asp-for="Book.Isbn" class="control-label"></label>
+				@Html.TextBoxFor(m=>m.Book.Isbn, new {@readonly="readonly", style="width:100%"})
+			</div>*@
+			<div class="form-group">
+				<input type="submit" value="Buy" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a asp-action="Index">Back to List</a>
+</div>
+
